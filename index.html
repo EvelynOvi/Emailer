@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>           
+        <h1>Enter your email</h1> 
+        <input id = "email"></input>
+        <button id = "join"> Subscribe </button>
+        <script>
+            let email = document.getElementById("email")
+            document.getElementById("join").onclick = () => {
+                console.log(email.value)
+                fetch("/sendemail?email=" + email.value, {
+                    method: "POST"
+                }).then((res) => {
+                    // success
+                    alert("success")
+                }).catch((err) => {
+                    // error 
+                    alert(err)
+                })
+            }
+        </script>
+    </body>
+</html>
